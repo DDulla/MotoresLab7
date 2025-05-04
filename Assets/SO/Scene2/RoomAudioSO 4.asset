@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98712df8d101d854abb07b22b9f564f4, type: 3}
-  m_Name: RoomAudioSO
+  m_Name: RoomAudioSO 4
   m_EditorClassIdentifier: 
-  roomMusic: {fileID: 0}
-  roomName: 
+  roomMusic: {fileID: 8300000, guid: 7d3519ff01a4a4a488ae727166600751, type: 3}
+  roomName: CaravanPalace

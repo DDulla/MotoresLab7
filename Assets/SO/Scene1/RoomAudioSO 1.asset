@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98712df8d101d854abb07b22b9f564f4, type: 3}
   m_Name: RoomAudioSO 1
   m_EditorClassIdentifier: 
-  roomMusic: {fileID: 0}
-  roomName: 
+  roomMusic: {fileID: 8300000, guid: deda306b33d5f3848ba98e8caa96515a, type: 3}
+  roomName: TrashBin

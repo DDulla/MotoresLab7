@@ -4,18 +4,14 @@ using UnityEngine.Events;
 
 public class SceneChanger : MonoBehaviour
 {
-    public UnityEvent onScene1Change;
-    public UnityEvent onScene2Change;
+    public UnityEvent onSceneChange;
 
-    public void ChangeToScene1()
+    public void ChangeScene()
     {
-        onScene1Change.Invoke();
-        SceneManager.LoadScene("Scene1");
-    }
+        string currentScene = SceneManager.GetActiveScene().name;
+        string nextScene = currentScene == "Scene1" ? "Scene2" : "Scene1";
 
-    public void ChangeToScene2()
-    {
-        onScene2Change.Invoke();
-        SceneManager.LoadScene("Scene2");
+        onSceneChange.Invoke();
+        SceneManager.LoadScene(nextScene);
     }
 }
