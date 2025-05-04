@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98712df8d101d854abb07b22b9f564f4, type: 3}
   m_Name: RoomAudioSO 3
   m_EditorClassIdentifier: 
-  roomMusic: {fileID: 8300000, guid: 8b8a57ebadd906341bae051ccd3a7328, type: 3}
+  roomMusic: {fileID: 8300000, guid: c448794ee4fb47445abe90122b369b48, type: 3}
   roomName: Cuarteto
