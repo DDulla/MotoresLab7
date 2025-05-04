@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class AudioTrigger : MonoBehaviour
@@ -6,9 +8,9 @@ public class AudioTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && audioSource.clip != null)
+        if (other.CompareTag("Player"))
         {
-            audioSource.Play();
+            StartCoroutine(EnterRoomSequence());
         }
     }
 
@@ -16,7 +18,29 @@ public class AudioTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            audioSource.Stop();
+            StartCoroutine(ExitRoomSequence());
         }
+    }
+
+    private IEnumerator EnterRoomSequence()
+    {
+        FadeController.Instance.FadeIn();
+        yield return new WaitForSeconds(1f); 
+
+        if (audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+
+        FadeController.Instance.FadeOut(); 
+    }
+
+    private IEnumerator ExitRoomSequence()
+    {
+        FadeController.Instance.FadeIn(); 
+        yield return new WaitForSeconds(1f); 
+
+        audioSource.Stop();
+        FadeController.Instance.FadeOut(); 
     }
 }
