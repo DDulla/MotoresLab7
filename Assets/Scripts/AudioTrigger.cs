@@ -5,6 +5,12 @@ using UnityEngine;
 public class AudioTrigger : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private RoomAudioSettings roomAudioSettings;
+
+    private void Start()
+    {
+        audioSource.loop = true; 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,22 +31,23 @@ public class AudioTrigger : MonoBehaviour
     private IEnumerator EnterRoomSequence()
     {
         FadeController.Instance.FadeIn();
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f);
 
-        if (audioSource.clip != null)
+        if (roomAudioSettings.RoomMusic != null)
         {
+            audioSource.clip = roomAudioSettings.RoomMusic;
             audioSource.Play();
         }
 
-        FadeController.Instance.FadeOut(); 
+        FadeController.Instance.FadeOut();
     }
 
     private IEnumerator ExitRoomSequence()
     {
-        FadeController.Instance.FadeIn(); 
-        yield return new WaitForSeconds(1f); 
+        FadeController.Instance.FadeIn();
+        yield return new WaitForSeconds(1f);
 
         audioSource.Stop();
-        FadeController.Instance.FadeOut(); 
+        FadeController.Instance.FadeOut();
     }
 }
